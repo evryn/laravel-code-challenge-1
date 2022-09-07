@@ -91,7 +91,8 @@ Now, we've decided to add another storage platform - S3. We need to configure th
 1. Create a service called `ImageStorage` 
 1. Decide to use a driver by looking up a `IMAGE_STORAGE_DRIVER` environment variable as config.
 
-> Hint: It's OK to use mocked S3 uploads. We don't want its real functionality for this testing project.
+> Note: It's OK to use mocked S3 uploads. We don't want its real functionality for this testing project.
+
 > Hint: Write a new migration for `images` table and keep the strategy method used there.
 
 ## Version 3 (Optional)
@@ -107,6 +108,7 @@ Due to the high usage of our AA (Awesome Application!), we're getting substantia
 
 ##### Instructions
 1. Create a command called `images:cleanup` and remove images older than 3 days
-> Note: Command may take a long time. We don't need two instances of the scheduled command running simultaneously.
 1. Use the [Laravel Scheduling](https://laravel.com/docs/9.x/scheduling) mechanism to schedule a command every 20 seconds.
 1. Research how to efficiently optimize the `images` table to perform table scans during your SELECT query of the cleanup task. Consider that the table will have nearly 1,000,000,000 records!
+
+> Note: Command may take a long time. We don't need two instances of the scheduled command running simultaneously.
