@@ -26,6 +26,8 @@ Note that:
 ### Output
 You'll need to have your final code pushed into your own GitHub repository. 
 
+____
+
 ## Version 1
 
 We need a Laravel application to let users sign up and sign in to allow them to upload images.
@@ -36,7 +38,7 @@ We need a Laravel application to let users sign up and sign in to allow them to 
 
 ### Goals
 - [ ] Implement sign up and sign in features using Laravel Sanctum
-- [ ] Implement an endpoint to upload a new file
+- [ ] Implement an endpoint to upload a new image and get the response
 
 ### Prerequisites
 Use the following tables for your migrations:
@@ -70,11 +72,13 @@ mysql> show columns from `images`;
 +-------------------+-----------------+------+-----+---------+----------------+
 ```
 
-##### Instructions
+### Instructions
 1. Create a Laravel project
 1. Use [Laravel Sanctum](https://laravel.com/docs/9.x/sanctum) to implement [SPA](https://laravel.com/docs/9.x/sanctum#spa-authentication) sign up and sign in features.
-1. Add an endpoint (`POST /api/images`) where the user can upload a file with its title. Store the file in the local filesystem and save its path and title into the database.
+1. Add an endpoint (`POST /api/images`) where the user can upload an image with its title and response its URL and title. Store the file in the local filesystem and save its path and title into the database.
 1. Protect the endpoint from unauthorized access.
+
+____
 
 ## Version 2
 
@@ -86,7 +90,7 @@ Now, we've decided to add another storage platform - S3. We need to configure th
 ### Goals
 - [ ] Implement a Strategy Pattern for uploading images to the local filesystem and S3 platform
 
-##### Instructions
+### Instructions
 1. Create two drivers called `FilesystemStorage` and `S3Storage`
 1. Create a service called `ImageStorage` 
 1. Decide to use a driver by looking up a `IMAGE_STORAGE_DRIVER` environment variable as config.
@@ -94,6 +98,8 @@ Now, we've decided to add another storage platform - S3. We need to configure th
 > Note: It's OK to use mocked S3 uploads. We don't want its real functionality for this testing project.
 
 > Hint: Write a new migration for `images` table and keep the strategy method used there.
+
+____
 
 ## Version 3 (Optional)
 
@@ -106,7 +112,7 @@ Due to the high usage of our AA (Awesome Application!), we're getting substantia
 - [ ] Schedule a task to clean up old images.
 - [ ] Consider optimizing the database for finding old records efficiently.
 
-##### Instructions
+### Instructions
 1. Create a command called `images:cleanup` and remove images older than 3 days
 1. Use the [Laravel Scheduling](https://laravel.com/docs/9.x/scheduling) mechanism to schedule the command every 20 seconds.
 1. Research how to efficiently optimize the `images` table to perform table scans during your SELECT query of the cleanup task. Consider that the table will have nearly 1,000,000,000 records!
