@@ -9,7 +9,7 @@ This project is about an image uploading system. The user will sign in and uploa
 
 ### Development
 The developer will do the project in 3 versions. The first two are required to complete the project, and the other is optional.
-You'll have one day to work on the project and decide how you're going to balance the things we care about (see below). Some people choose to do the required levels but keep the code as clean and high quality as possible, and some care about the task completion.
+You'll have one day to work on the project and decide how you're going to balance the things we care about (see below). Some people choose to do the required versions but keep the code as clean and high quality as possible, and some care about the task completion.
 
 We care about:
 - Code Quality & Standardization
@@ -108,7 +108,7 @@ Due to the high usage of our AA (Awesome Application!), we're getting substantia
 
 ##### Instructions
 1. Create a command called `images:cleanup` and remove images older than 3 days
-1. Use the [Laravel Scheduling](https://laravel.com/docs/9.x/scheduling) mechanism to schedule a command every 20 seconds.
+1. Use the [Laravel Scheduling](https://laravel.com/docs/9.x/scheduling) mechanism to schedule the command every 20 seconds.
 1. Research how to efficiently optimize the `images` table to perform table scans during your SELECT query of the cleanup task. Consider that the table will have nearly 1,000,000,000 records!
 
 > Note: Command may take a long time. We don't need two instances of the scheduled command running simultaneously.
