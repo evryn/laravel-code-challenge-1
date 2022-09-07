@@ -87,10 +87,11 @@ Now, we've decided to add another storage platform - S3. We need to configure th
 - [ ] Implement a Strategy Pattern for uploading images to the local filesystem and S3 platform
 
 ##### Instructions
-1. Create two drivers called `FilesystemUploader` and `S3Uploader`
+1. Create two drivers called `FilesystemStorage` and `S3Storage`
+1. Create a service called `ImageStorage` 
+1. Decide to use a driver by looking up a `IMAGE_STORAGE_DRIVER` environment variable as config.
+
 > Hint: It's OK to use mocked S3 uploads. We don't want its real functionality for this testing project.
-1. Create a service called `FileUploader` 
-1. Decide to use a driver by looking up a `UPLOADER_DRIVER` environment variable as config.
 > Hint: Write a new migration for `images` table and keep the strategy method used there.
 
 ## Version 3 (Optional)
